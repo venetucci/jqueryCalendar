@@ -2,11 +2,11 @@ $(document).ready(function () {
 
     var days =[
         {
-            name : 'Ind Day',
+            name : 'holiday 1',
             day : 16
         },
         {
-            name : 'Labor Day',
+            name : 'holiday 2',
             day : 2
         }
     ];
@@ -40,6 +40,26 @@ $(document).ready(function () {
 
 
 
+//    $('#submitter').on('click', function (evt) {
+//         evt.preventDefault();
+
+//         console.log ('clicked button!');
+
+//         var nameField = $('#eventName');
+//         var dayField = $('[name="eventDay"]');
+
+//         var name = nameField.val();
+//         var day = dayField.val();
+
+//         insertEvent(name, day);
+
+//         nameField.val('');
+//         dayField.val('');
+
+//         $('#myModal').modal('hide');
+
+//     });
+
     var btn = $('#submitter');
 
     btn.on('click', function (evt) {
@@ -50,6 +70,11 @@ $(document).ready(function () {
 
       insertEvent(name, day);
 
+      $('eventName').val('');
+      $('[name="eventDay"]').val();
+
+      $('#myModal').modal('hide');
+
     });
 
     $('td').on('click', function (event) {
@@ -58,6 +83,8 @@ $(document).ready(function () {
         var day = $(event.target).children('.date').text();
 
         $('[name="eventDay"]').val(day);
+
+        $('#myModal').modal('toggle');
      });
 
     $('#eventName').on('keyup', function (event) {
